@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Helpers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <div class="dashboard">
+                <div class="d-flex mt-4 justify-content-end">
+                    <a class="navbar-brand" href="/">Home</a>
+                    <a class="navbar-brand" href="/about">About Us</a>
+                    <a class="navbar-brand" href="/contact">Contact Us</a>
+                </div>
+                <div class="helping_helpers">
+                    <h2>Helping Helpers</h2>
+                    <h3>A Supportive Community for Healthcare Professionals</h3>
+                </div>
+                <img src="/static/main_photo.jpeg" alt="main_photo" class="photo">
+            </div>
+        <div class="row m-4">
+            <form action="/login" method="post" class="col-md-6">
+                <h3>Login</h3>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <p style="color: red;">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <button class="btn btn-primary mt-2">Login</button>
+            </form>
+            <div class="login_and_register">
+                <h3>Don't Have an Account?</h3>
+                <a href="/" class="btn btn-success">Register Here</a>
+            </div>
+        </div>
+        <p class="copyright">ⓒ Copyright- Helping Helpers</p>
+    </div>
+</body>
+</html>

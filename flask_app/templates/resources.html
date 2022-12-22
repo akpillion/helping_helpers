@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Helping Helpers</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="dashboard">
+                <div class="d-flex mt-4">
+                    <h4 class="mr-auto p-2">How can we help you, {{user.first_name}}?</h4>
+                    <a href="/dashboard" class="btn btn-link">Dashboard</a>
+                    <a href="/account/{{user.id}}" class="btn btn-link">My Posts</a>
+                    <a href="/messages" class="btn btn-link">Messages</a>
+                    <a href="/logout" class="btn btn-link">Logout</a>
+                </div>
+                <div class="helping_helpers">
+                    <h2>Helping Helpers</h2>
+                    <h3>A Supportive Community for Healthcare Professionals</h3>
+                </div>
+                <img src="/static/main_photo.jpeg" alt="main_photo" class="photo">
+            </div>
+            <div class="mt-4 d-flex">
+                <div class="m-4">
+                    <h3 class="mh_title">Hotlines</h3>
+                    <p>SAMHSA's National Helpline | 800-662-4357</p>
+                    <p>988 Suicide & Crisis Lifeline | Call 988</p>
+                    <p>National Suicide Prevention Lifeline | 800-273-8255</p>
+                </div>
+                <div class="m-4">
+                    <h3 class="mh_title">Helpful Websites</h3>
+                    <p><a href="https://www.betterhelp.com/">BetterHelp</a></p>
+                    <p><a href="https://www.cdc.gov/mentalhealth/stress-coping/healthcare-workers-first-responders/index.html">CDC Support for Healthcare Workers</a></p>
+                    <p><a href="https://www.nami.org/Your-Journey/Frontline-Professionals/Health-Care-Professionals">NAMI Support for Healthcare Professionals</a></p>
+                </div>
+                <div class="m-4">
+                    <h3 class="mh_title">Good Reads</h3>
+                    <p><a href="https://www.amazon.com/Body-Keeps-Score-Healing-Trauma/dp/0143127748">The Body Keeps the Score</a> by Bessel van der Kolk, MD</p>
+                    <p><a href="https://www.amazon.com/Burnout-Secret-Unlocking-Stress-Cycle/dp/198481706X?&_encoding=UTF8&tag=choosingthera-20&linkCode=ur2&linkId=40c29462c5bf6d1a3f51f87e7625936a&camp=1789&creative=9325">Burnout: The Secret to Unlocking the Stress Cycle</a> by Emily Nagoski, PhD</p>
+                    <p><a href="https://www.amazon.com/Burnout-Healthcare-Guide-Addressing-Epidemic/dp/1082440574">Burnout in Healthcare: A Guide to Addressing the Epidemic</a> by Rajeev Kurapati, MD, MBA</p>
+                </div>
+            </div>
+            <hr class="bg-primary">
+            <div class="suggestions">
+                <h4>Have suggestions for other resources to add?</h4>
+                <a href="mailto:info@helpinghelpers.com" class="btn btn-success">Contact Us Here</a>
+            </div>
+        </div>
+    </body>
+</html>

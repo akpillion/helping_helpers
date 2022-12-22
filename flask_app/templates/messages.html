@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Helping Helpers</title>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <div class="d-flex mt-4">
+                <h4 class="mr-auto p-2">{{user.first_name}}, here are your messages:</h4>
+                <a href="/dashboard" class="btn btn-link">Dashboard</a>
+                <a href="/messages" class="btn btn-link">Messages</a>
+                <a href="/resources" class="btn btn-link">Resources</a>
+                <a href="/logout" class="btn btn-link">Logout</a>
+            </div>
+            <div class="helping_helpers">
+                <h2>Helping Helpers</h2>
+                <h3>A Supportive Community for Healthcare Professionals</h3>
+            </div>
+            <img src="/static/rocks.jpeg" alt="rock_photo" class="photo">
+        </div>
+        <main class="d-flex justify-content-around">
+            <div class="col-5">
+                <h4 class="text-center">{{messages|length}} messages for you</h4>
+                <hr class="bg-primary">
+                {% for message in messages %}
+                <div class="card bg-primary my-2">
+                    <div class="card-body">
+                        <h3 class="card-title">{{message.sender.first_name}} said {{message.time_span()}}:</h3>
+                        <p class="card-text">{{message.content}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/destroy/message/{{message.id}}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-5">
+                <h4 class="text-center">Send a Message:</h4>
+                <hr class="bg-primary">
+                {% for user in users %}
+                    {% if user.id != session.user_id %}
+                    <form class=" p-2"action="/post_message" method="post">
+                        <input type="hidden" name="sender_id" value={{session.user_id}}>
+                        <input type="hidden" name="receiver_id" value={{user.id}}>
+                        <label for="receiver_id">Message {{user.first_name}}:</label>
+                        <textarea class="form-control" name="content" id="" cols="30" rows="3"></textarea>
+                        <input type="submit" value="Message" class="btn btn-warning">
+                    </form>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+    <p class="copyright">ⓒ Copyright- Helping Helpers</p>
+</body>
+</html>

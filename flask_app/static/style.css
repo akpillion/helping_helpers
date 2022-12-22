@@ -1,0 +1,48 @@
+* {
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+.container {
+    background-color: lightcyan;
+}
+
+.row {
+    background-color: aliceblue;
+}
+
+.title {
+    text-align: center;
+    background-color: #091c1c;
+    color: white;
+}
+
+.photo {
+    width: 1110px;
+    height: 400px;
+}
+
+.about_us, .contact_us, .login_and_register, .copyright {
+    text-align: center;
+}
+
+.dashboard {
+    background-color: aliceblue;
+}
+
+.helping_helpers {
+    text-align: center;
+}
+
+.left_side {
+    text-align: center;
+    font-weight: bold;
+}
+
+.suggestions {
+    text-align: center;
+}
+
+.mh_title {
+    text-decoration: underline;
+    text-align: center;
+}

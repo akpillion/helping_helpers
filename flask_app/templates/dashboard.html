@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Helpers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <div class="d-flex mt-4">
+                <h4 class="mr-auto p-2">Welcome, {{user.first_name}}!</h4>
+                <a href="/account/{{user.id}}" class="btn btn-link">My Posts</a>
+                <a href="/messages" class="btn btn-link">Messages</a>
+                <a href="/resources" class="btn btn-link">Resources</a>
+                <a href="/logout" class="btn btn-link">Logout</a>
+            </div>
+            <div class="helping_helpers">
+                <h2>Helping Helpers</h2>
+                <h3>A Supportive Community for Healthcare Professionals</h3>
+            </div>
+            <img src="/static/rocks.jpeg" alt="rock_photo" class="photo">
+            <a href="/new_post" class="btn btn-outline-info mt-4">Create a Post</a>
+        </div>
+        <div class="row">
+            <h4 class="m-4">Activity Feed</h4>
+            <table class="table table-striped m-4">
+                <tbody>
+                    {% for post in all %}
+                    <tr>
+                        <td>{{post.updated_at}}</td>
+                        <td>{{post.title}}</td>
+                        <td><a href="/show_post/{{post.id}}" class="btn btn-outline-info">Show More</a></td>
+                        <td>Liked {{post.all_who_liked | length}} times</td>
+                        <td>
+                            {% if session.user_id in post.all_who_liked | map( attribute = 'id') %}
+                            <a href="/dislike_post/{{post.id}}" class="btn btn-danger">Dislike</a>
+                            {% else %}
+                            <a href="/like_post/{{post.id}}" class="btn btn-success">Like</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <p class="copyright">ⓒ Copyright- Helping Helpers</p>
+    </div>
+</body>
+</html>
